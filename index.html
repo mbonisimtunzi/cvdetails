@@ -108,30 +108,27 @@
           const skills = document.querySelector('#skills').value;
           const references = document.querySelector('#references').value;
       
-          const message = 
-          `*Curriculum Vitae Details*
-            *Name:* ${firstName} 
-            *Surname:* ${lastName}
-            *Date of Birth* ${dob}
-            *Address:* ${address}
-            *Email Address:* ${email}
-            *National ID:* ${nationalId}
-            *Education:* ${education}
-            *Working Experience:* ${workExperience}
-            *Interests:* ${interests}
-            *Skills:* ${skills}
-            *References Details:* ${references}
-          `;
+          const message = `
+*Curriculum Vitae Details*
+_---------------------------------_
+*Name:* ${firstName} 
+*Surname:* ${lastName}
+*Date of Birth* ${dob}
+*Address:* ${address}
+*Email Address:* ${email}
+*National ID:* ${nationalId}
+*Education:* ${education}
+*Working Experience:* ${workExperience}
+*Interests:* ${interests}
+*Skills:* ${skills}
+*References Details:* ${references}
+
+_submited info_
+`;
           const encodedMessage = encodeURIComponent(message);
           window.open(`https://wa.me/263785052149?text=${encodedMessage}`, '_blank');
         }
       </script>
-      
-
-
-
-
-
-</body>
+  </body>
 
 </html>
