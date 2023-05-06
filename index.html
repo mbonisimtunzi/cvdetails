@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title>CV Creator | Mtunzi Media</title>
     <style>
-      body {
+ body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
@@ -38,42 +39,89 @@
         border-radius: 5px;
         background-color: #007bff;
         color: #fff;
+        width: 95%;
         border: none;
         cursor: pointer;
       }
-    </style>
+      .split-input {
+        display: flex;
+      }
+      .split-input input {
+        width: 50%;
+        margin-right: 10px;
+      }
+
+
+
+      </style>
   </head>
   <body>
     <h1>Curriculum Vitae Details</h1>
     <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">Email:</label>
+      <label for="first_name">Name:</label>
+      <input type="text" id="first_name" name="first_name" required>
+      <label for="last_name">Surname:</label>
+      <input type="text" id="last_name" name="last_name" required>
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" required></textarea>
+      <label for="email">Email Address:</label>
       <input type="email" id="email" name="email" required>
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
+      <label for="national_id">National ID:</label>
+      <input type="text" id="national_id" name="national_id" required>
       <label for="education">Education:</label>
       <textarea id="education" name="education" required></textarea>
-      <label for="work">Work Experience:</label>
-      <textarea id="work" name="work" required></textarea>
-      <button type="button" onclick="sendWhatsApp()">Submit</button>
+      <label for="work_experience">Working Experience:</label>
+      <textarea id="work_experience" name="work_experience" required></textarea>
+      <label for="interests">Interests:</label>
+      <textarea id="interests" name="interests" required></textarea>
+      <label for="skills">Skills:</label>
+      <textarea id="skills" name="skills" required></textarea>
+      <label for="references">References Details:</label>
+      <textarea id="references" name="references" required></textarea>
+      <button type="submit" id="submit">Submit</button>
     </form>
+    
     <script>
-      function sendWhatsApp() {
-        // Get the form data
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var phone = document.getElementById("phone").value;
-        var education = document.getElementById("education").value;
-        var work = document.getElementById("work").value;
+      const form = document.querySelector('form');
+      form.addEventListener('submit', handleSubmit);
+      
+      function handleSubmit(e) {
+        e.preventDefault();
+        const firstName = document.querySelector('#first_name').value;
+        const lastName = document.querySelector('#last_name').value;
+        const dob = document.querySelector('#dob').value;
+        const address = document.querySelector('#address').value;
+        const email = document.querySelector('#email').value;
+        const nationalId = document.querySelector('#national_id').value;
+        const education = document.querySelector('#education').value;
+        const workExperience = document.querySelector('#work_experience').value;
+        const interests = document.querySelector('#interests').value;
+        const skills = document.querySelector('#skills').value;
+        const references = document.querySelector('#references').value;
         
-        // Create the WhatsApp message
-        var message = "*Name:* " + name + "%0A*Email:* " + email + "%0A*Phone:* " + phone + "%0A*Education:* " + education + "%0A*Work Experience:* " + work;
-        var url = "https://api.whatsapp.com/send?phone=263785052149&text=" + message;
-        
-        // Redirect to WhatsApp
-        window.location.href = url;
-      }
-    </script>
+        const message = `
+          *Name:* ${firstName}
+          *Surname:* ${lastName}
+          *Date of Birth*: ${dob}
+          *Address:* ${address}
+          *Email Address:* ${address}
+          *Email Address:* ${email}
+*National ID:* ${nationalId}
+*Education:* ${education}
+*Working Experience:* ${workExperience}
+*Interests:* ${interests}
+*Skills:* ${skills}
+*References Details:* ${references}
+; const encodedMessage = encodeURIComponent(message); window.open(https://wa.me/263787490232?text=${encodedMessage}`, '_blank');
+}
+</script>
+
+
+
+  
+  
   </body>
+ 
 </html>
